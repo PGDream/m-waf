@@ -46,14 +46,15 @@ function _M.find_node( upstream )
 end
 
 function _M.filter()
-
+    -- 是否开启backend 功能
     if VeryNginxConfig.configs["proxy_pass_enable"] ~= true then
         return
     end
-    
+    -- 获取匹配规则
     local matcher_list = VeryNginxConfig.configs['matcher']
+    -- 获取backend upstream
     local upstream_list = VeryNginxConfig.configs['backend_upstream']
-
+    -- 匹配关联触发规则与所有规则
     for i, rule in ipairs( VeryNginxConfig.configs["proxy_pass_rule"] ) do
         local enable = rule['enable']
         local matcher = matcher_list[ rule['matcher'] ] 

@@ -15,7 +15,6 @@ function _M.run()
         ngx.log(ngx.ERR, "failed to set the current peer: ", err)
         return ngx.exit(500)
     end
-
     return
 end
 
